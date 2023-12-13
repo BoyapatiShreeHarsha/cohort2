@@ -31,131 +31,7 @@ class Calculator {
       throw new Error("Not a number");
     this.result=ans;
 
-
-    // let arr=[];
-    
-    // let word="";
-    // for(let i=0;i<str.length;i++)
-    // {
-      
-    //   while(i<str.length && str[i]!='(' && str[i]!=')' && str[i]!=' ' && str[i]!='+' && str[i]!='-' && str[i]!='*' && str[i]!='/')
-    //   {
-    //     word+=str[i];
-    //     i++;
-    //   }
-    //   if(word!='')
-    //   {
-    //     arr.push(word);
-    //     word="";
-    //   }
-    //   if(str[i]=='(' || str[i]==')' || str[i]=='+' || str[i]=='-' || str[i]=='*' || str[i]=='/')
-    //   {
-    //     arr.push(str[i]);
-    //   }
-      
-    // }
-    // if(word!='')
-    //   {
-    //     arr.push(word);
-    //     word="";
-    //   }
-
-    // console.log(arr);
-
-    // this.result=this.findit(arr,0);
-
-
-
-
   }
-
-  // findit(arr,i){
-  //   let ans=0;
-  //   let prev=" ";
-  //   for(;i<arr.length;i++)
-  //   {
-  //     switch (arr[i]) {
-  //       case '+':
-  //         prev="+";
-  //         break;
-  //       case '-':
-  //           prev="-";
-  //           break;
-  //       case '*':
-  //             prev="*";
-  //             break;
-  //       case '/':
-  //               prev="/";
-  //               break;
-  //       case '(':
-  //         let nextans=this.findit(arr,i+1);
-  //         if(prev=="+")
-  //         {
-  //           ans+=nextans;
-  //         }
-  //         else if(prev=="-")
-  //         {
-  //           ans-=nextans;
-  //         }
-  //         else if(prev=='*')
-  //         {
-  //           ans*=nextans;
-  //         }
-  //         else if(prev=='/')
-  //         {
-  //           if(nextans==0)
-  //           {
-  //             throw new Error("Not possible");
-              
-  //           }
-  //           ans=ans/nextans;
-  //         }
-  //         else 
-  //         ans=nextans;
-  //       case ')':
-  //         i++;
-  //         return ans;
-  //       default:
-  //         let a=parseFloat(arr[i]);
-  //         if(a==NaN)
-  //         throw new Error("Not a number");
-  //          let newans=a;
-  //         if(prev=="+")
-  //         {
-  //           ans+=newans;
-  //           prev=" ";
-  //         }
-  //         else if(prev=="-")
-  //         {
-  //           ans-=newans;
-  //           prev=" ";
-  //         }
-  //         else if(prev=='*')
-  //         {
-  //           ans*=newans;
-  //           prev=" ";
-  //         }
-  //         else if(prev=='/')
-  //         {
-  //           if(newans==0)
-  //           {
-  //             throw new Error("Not possible");
-              
-  //           }
-  //           ans=ans/newans;
-  //           prev=" ";
-  //         }
-  //         else 
-  //         {
-  //           ans=newans;
-  //           prev=" ";
-  //         }
-  //     }
-
-  //   }
-
-  //   return ans;
-  // }
 
 
   add(value){
@@ -184,3 +60,120 @@ class Calculator {
 }
 
 module.exports = Calculator;
+
+// class Calculator {
+//   constructor() {
+//     this.result = 0;
+//   }
+
+//   add(number) {
+//     this.result += number;
+//   }
+
+//   subtract(number) {
+//     this.result -= number;
+//   }
+
+//   multiply(number) {
+//     this.result *= number;
+//   }
+
+//   divide(number) {
+//     if (number === 0) {
+//       throw new Error('Cannot divide by zero');
+//     }
+//     this.result /= number;
+//   }
+
+//   clear() {
+//     this.result = 0;
+//   }
+
+//   getResult() {
+//     return this.result;
+//   }
+
+//   cleanString(expression) {
+//     return expression.replace(/\s/g, '');
+//   }
+
+//   containsOtherCharacters(str) {
+//     const pattern = /[^+\-/*\d()]/;
+//     return pattern.test(str);
+//   }
+
+//   calculate(expression) {
+//     expression = this.cleanString(expression);
+
+//     if (this.containsOtherCharacters(expression)) {
+//       throw new Error('Invalid Input');
+//     }
+
+//     const tokens = expression.match(/(\d+|\+|\-|\*|\/|\(|\))/g);
+
+//     const operators = [];
+//     const operands = [];
+
+//     for (let token of tokens) {
+//       if (!isNaN(parseFloat(token))) {
+//         operands.push(parseFloat(token));
+//       } else if (token === '(') {
+//         operators.push(token);
+//       } else if (token === ')') {
+//         while (operators.length !== 0 && operators[operators.length - 1] !== '(') {
+//           this.performOperation(operators.pop(), operands);
+//         }
+//         operators.pop();
+//       } else {
+//         while (
+//           operators.length !== 0 &&
+//           this.precedence(operators[operators.length - 1]) >= this.precedence(token)
+//         ) {
+//           this.performOperation(operators.pop(), operands);
+//         }
+//         operators.push(token);
+//       }
+//     }
+
+//     while (operators.length !== 0) {
+//       this.performOperation(operators.pop(), operands);
+//     }
+
+//     this.result = operands[0];
+//   }
+
+//   precedence(operator) {
+//     if (operator === '+' || operator === '-') {
+//       return 1;
+//     } else if (operator === '*' || operator === '/') {
+//       return 2;
+//     }
+//     return 0;
+//   }
+
+//   performOperation(operator, operands) {
+//     const num2 = operands.pop();
+//     const num1 = operands.pop();
+
+//     switch (operator) {
+//       case '+':
+//         operands.push(num1 + num2);
+//         break;
+//       case '-':
+//         operands.push(num1 - num2);
+//         break;
+//       case '*':
+//         operands.push(num1 * num2);
+//         break;
+//       case '/':
+//         operands.push(num1 / num2);
+//         break;
+//       default:
+//         break;
+//     }
+//   }
+// }
+
+// module.exports = Calculator;
+
+// const calculator = new Calculator();
