@@ -16,11 +16,30 @@ body{
     /* so that the content in it will get to the center  and not fixing the width as we can't get the squares we need*/
     
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #333;
     margin: 0 0;
 }
+.heading{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2%;
+    color: #AAA;
+}
+.class-1{
+    border-top: 8px solid white;
+    border-radius: 4px;
+}
+.heading>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
 
 .game-board{
     display: flex;
@@ -97,4 +116,13 @@ body{
         transform: scale(0);
     }
     
+}
+
+.aleart{
+    position: absolute;
+    background-color: #CCC;
+    width: 100%;
+    text-align: center;
+    padding: 5% 0%;
+    font-size: 8vmin;
 }

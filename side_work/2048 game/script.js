@@ -2,6 +2,65 @@ import Grid from "./grid.js";
 import Tile from "./tile.js";
 
 
+let hs=document.getElementById("hs");
+let aleart=document.getElementsByClassName("aleart")[0];
+aleart.hidden=true;
+document.getElementById("restart").addEventListener("click", restart);
+
+function restart(){
+    location.reload();
+}
+
+if(localStorage.getItem("score")==null)
+{
+    localStorage.setItem("score",0);
+    hs.innerHTML=`HS:00`;
+}
+else
+{
+    let result=localStorage.getItem("score");
+    hs.innerHTML=`HS:${result}`;
+}
+
+
+
+let counter=document.getElementById("counter");
+
+function padZero(value) {
+    return value < 10 ? `0${value}` : `${value}`;
+}
+
+let s=0;
+let m=0;
+let h=0;
+
+const myInterval = setInterval(count,1000);
+
+function count(){
+    s++;
+    if(s==60)
+    {
+        s=0;
+        m++;
+    }
+    if(m==60)
+    {
+        m=0;
+        h++;
+    }
+    
+    let H=padZero(h);
+    let M=padZero(m);
+    let S=padZero(s);
+    counter.innerHTML=`${H}:${M}:${S}`;
+}
+
+
+
+
+
+
+
 
 let gameboard=document.getElementsByClassName("game-board");
 gameboard=gameboard[0];
@@ -62,14 +121,32 @@ async function handleInput(e){
             setUpInput();
             return;
     }
+    
+    grid.cells.forEach(function(cell){
+        cell.mergetiles();
+        
 
-    grid.cells.forEach(cell => cell.mergetiles());
-    // let a = grid.wincase();
-    // if(a)
-    // {
-    //     alert("You Won");
-    //     return;
-    // }
+    });
+
+    
+    let high=0;
+
+    for(let i=0;i<grid.cells.length;i++)
+    {
+        high=Math.max(high,grid.cells[i].v);
+    }
+    console.log(high);
+
+    if(high==2048)
+    {
+        aleart.innerHTML=`you won`;
+            aleart.hidden=false;
+            let result=localStorage.getItem("score");
+            localStorage.removeItem("score");
+            localStorage.setItem("score",Math.max(high,result));
+            clearInterval(myInterval);
+    }
+
     let newTile=new Tile(gameboard);
     grid.randomEmptyTile().tile= newTile;
 
@@ -77,7 +154,12 @@ async function handleInput(e){
     if(!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight())
     {
         newTile.waitForTransition(true).then(()=>{
-            alert("you lose");
+            aleart.innerHTML=`you lose`;
+            aleart.hidden=false;
+            let result=localStorage.getItem("score");
+            localStorage.removeItem("score");
+            localStorage.setItem("score",Math.max(high,result));
+            clearInterval(myInterval);
         })
         
 

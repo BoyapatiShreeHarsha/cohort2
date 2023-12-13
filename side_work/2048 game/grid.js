@@ -129,6 +129,15 @@ class Cell{
 
     }
 
+    get v(){
+        if(this.tile ==null)
+        {
+            return 0;
+        }
+
+        return this.tile.value;
+    }
+
     get tile(){
         return this.#tile;
 
@@ -160,14 +169,14 @@ class Cell{
     }
 
     mergetiles(){
-        if(this.tile == null || this.mergetile == null)
+        if(this.tile == undefined || this.mergetile == undefined)
             return;
-        this.tile.value = this.tile.value + this.mergetile.value;
-        this.mergetile.remove();
-        this.mergetile=null;
+            this.tile.value = this.tile.value + this.mergetile.value;
+            this.mergetile.remove();
+            this.mergetile=null;
+            return;
+        
     }
-
-
 
 
 

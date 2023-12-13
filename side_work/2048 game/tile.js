@@ -28,6 +28,9 @@ export default class Tile{
         this.#x=value;
         this.#tileElement.style.setProperty("--x",value);
     }
+    get tileElement(){
+        return this.#tileElement;
+    }
 
     set y(value){
         this.#y=value;
