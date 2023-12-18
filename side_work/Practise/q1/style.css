@@ -1,0 +1,40 @@
+*{
+    padding: 0 0;
+    margin: 0 0;
+    box-sizing: border-box;
+    /* --red-color:0;
+    --blue-color:255; */
+}
+
+body{
+    margin: 5% auto;
+    width: 70%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap:10rem;
+    
+    
+}
+
+#box{
+    
+    padding: 7% 20%;
+    background-color: rgb(var(--red-color), var(--green-color), var(--blue-color));
+    border: 3px solid black;
+}
+
+.color{
+    background-color: white;
+}
+.box-2{
+    
+
+    padding: 7% 20%;
+    border: 3px solid black;
+    background-color: rgb(var(--red-color), 0, var(--blue-color));;
+}
+

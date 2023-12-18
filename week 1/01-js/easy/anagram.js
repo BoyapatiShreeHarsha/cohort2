@@ -9,7 +9,7 @@ function checkSet(map1,map2){
   return false;
 
 //   console.log(map1);
-//   console.log(map2);
+//   console.log(map2)
 
 for(let [key,value] of map1)
 {
