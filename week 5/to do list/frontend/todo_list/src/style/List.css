@@ -1,0 +1,27 @@
+
+.body{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    position: relative;
+}
+
+.list{
+    border: 2px solid rgb(0, 221, 255);
+    width: fit-content;
+    padding: 2% 2%;
+}
+
+.body-form{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    z-index: 3; 
+    background-color: brown;
+}
+
+.cross{
+    position: absolute;
+    right: 0;
+    top:0;
+}

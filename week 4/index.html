@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+    let globalId = 1;
+    let todoState = [];
+    let oldTodoState = [];
+
+    function addTodoToDom(todo) {
+      console.log(todo);
+      let parent=document.getElementById("todos");
+      console.log(parent);
+      let div=document.createElement("div");
+      div.setAttribute("id", `${todo.id}`);
+      div.setAttribute("class","box");
+      let c1=document.createElement("p");
+      c1.setAttribute("class","title");
+      c1.innerText=`${todo.title}`;
+      div.appendChild(c1);
+      let c2= document.createElement("p");
+      c2.setAttribute("class","description");
+      c2.innerText=`${todo.description}`;
+      div.appendChild(c2);
+      parent.appendChild(div);
+    }
+
+    function removeTodoFromDom(todo) {
+      let old=document.getElementById(`${todo.id}`);
+      old.remove();
+    }
+
+    function updateTodoInDom(oldTodo, newTodo) {
+        let old=document.getElementById(`${oldTodo.id}`);
+        let newone=document.getElementById(`${newTodo.id}`);
+        let c1=old.firstElementChild;
+        let c2=old.lastElementChild;
+
+        c1.innerText=`${newTodo.title}`;
+        c2.innerText=`${newTodo.description}`;
+    }
+
+    function updateState(newTodos) {
+      // calculate the diff b/w newTodos and oldTodos.
+      // More specifically, find out what todos are - 
+      // 1. added
+      // 2. deleted
+      // 3. updated
+      let lookuptable=[];
+       oldTodoState.forEach((obj)=>{
+        lookuptable[obj.id]=obj;
+      });
+      // console.log(lookuptable);
+      // console.log(newTodos);
+
+
+      const added = [];
+      const deleted = [];
+      const updated = [];
+
+      newTodos.forEach((obj)=>{
+        let i=obj.id;
+        if(lookuptable[i]){
+          //already present
+          let a=(obj.title==lookuptable[i].title) && (obj.description ==  lookuptable[i].description);
+          if(a){
+            lookuptable[i].present=true;
+          }
+          else{
+            updated.push({old:lookuptable[i],new:obj});
+            lookuptable[i].present=true;
+          }
+        }
+        else{
+          added.push(obj);
+        }
+      })
+
+
+      lookuptable.forEach(obj=>{
+        if(!obj.present){
+          deleted.push(obj);
+        }
+
+      //   console.log(added);
+      // console.log(deleted);
+      // console.log(updated);
+      console.log("going");
+        // added.forEach((obj)=>{
+        //   addTodoToDom(obj);
+        // });
+
+        for(let i=0;i<added.length;i++){
+          console.log(added[i]);
+          addTodoToDom(added[i]);
+        }
+
+        updated.forEach(obj=>{
+          updateTodoInDom(obj.old,obj.new);
+        })
+
+        deleted.forEach(obj=>{
+          removeTodoFromDom(obj);
+        })
+
+      })
+
+
+      // calculate these 3 arrays
+      // call addTodo, removeTodo, updateTodo functions on each of the
+      // elements
+      oldTodoState = newTodos;
+    }
+
+    function addTodo() {
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+      todoState.push({
+        title: title,
+        description: description,
+        id: globalId++,
+      })
+      updateState(todoState);
+      document.getElementById("title").value="";
+      document.getElementById("description").value="";
+    }
+  </script>
+</head>
+
+<body>
+  <input type="text" id="title" placeholder="Todo title"></input> <br /><br />
+  <input type="text" id="description" placeholder="Todo description"></input> <br /><br />
+  <button onclick="addTodo()">Add todo</button>
+  <br /> <br />
+
+  <div id="todos">
+    <!-- <div class="box" id="1">
+      <p class="title">Heading</p>
+      <p class="description">Thisn is the description</p>
+    </div> -->
+    
+  </div>
+</body>
+
+</html>

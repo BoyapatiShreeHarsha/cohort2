@@ -1,0 +1,7 @@
+-> create a backend for task's and create the CURD endpoints along with it
+-> handle them in the frontend
+
+-> create for the user authentication and link them to his notes
+
+-> see routers.
+-> create a proper 2 web pages for it

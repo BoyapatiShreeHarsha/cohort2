@@ -1,14 +1,21 @@
 const express = require('express');
+
 const app = express();
-const adminRouter = require("./routes/admin")
-const userRouter = require("./routes/user");
+const noteRouter = require("./routes/note");
+
+const cors = require("cors");
+
+
+
+
 
 // Middleware for parsing request bodies
+app.use(cors());
 app.use(express.json());
-app.use("/admin", adminRouter)
-app.use("/user", userRouter)
+app.use("/notes", noteRouter);
 
-const PORT = 3000;
+const PORT = 5000;
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

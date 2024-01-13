@@ -1,0 +1,15 @@
+
+
+.form{
+    
+    height: 20vh;
+    width: 20vh;
+    margin: 2% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 4px solid red;
+    
+}
