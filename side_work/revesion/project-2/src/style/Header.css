@@ -1,0 +1,33 @@
+
+.header{
+    height: 10vh;
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.titles{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.titles>li{
+    text-decoration: none;
+    list-style: none;
+    font-weight: bolder;
+    
+}
+
+.titles>li>a{
+    text-decoration: none;
+    color: black;
+}
+
+.titles>li:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+    text-decoration: underline;
+}

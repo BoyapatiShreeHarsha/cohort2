@@ -1,0 +1,54 @@
+.navbar{
+    height: 10vh;
+    display: flex;
+    /* justify-content: space-evenly; */
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.logo{
+    flex-basis: 0;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.logo>img{
+    
+    height: 70%;
+    margin: 0 auto;
+}
+.titles{
+    flex-basis: 0;
+    flex-grow: 4;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.titles>a{
+    text-decoration: none;
+    color: black;
+}
+
+.titles>a:hover{
+    text-decoration: underline;
+}
+
+
+.login{
+    flex-grow: 1;
+    flex-basis: 0;
+    display: flex;
+    justify-content: end;
+    
+}
+
+.login>button{
+    color: white;
+    padding: 2% 4%;
+    background-color: #D01C28;
+    border: none;
+}
+
+
+

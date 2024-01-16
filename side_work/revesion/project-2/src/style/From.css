@@ -1,0 +1,100 @@
+
+
+.from{
+    width: 80%;
+    margin: 0 auto;
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.right{
+    height: 100%;
+}
+
+.right-img{
+    display: inline;
+    /* width: 80%; */
+    
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.left-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 2rem;
+}
+
+.top-part{
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.top-part>button{
+    flex-basis: 0;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    padding: 2% 0%;
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 4px;
+}
+
+.bottom-part{
+    width: 100%;
+}
+
+.bottom-part>button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    padding: 2% 0%;
+
+    color: black;
+    background-color: transparent;
+    font-weight: bolder;
+}
+
+.main-form{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.submit{
+    display: flex;
+    justify-content: end;
+}   
+
+.submit>input{
+    padding: 2% 8%;
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 4px;
+}
+
+
