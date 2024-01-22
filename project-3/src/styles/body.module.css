@@ -1,0 +1,44 @@
+.center{
+    width: 20%;
+    margin: 2% auto;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image{
+    /* background-color: blue; */
+    height: fit-content;
+    aspect-ratio: 1;
+}
+
+.alert1{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: left;
+    width: 50%;
+    margin: 1% auto;
+    background-color: rgba(255, 0, 0, 0.363);
+    padding-left: 1%;
+}
+
+.heading{
+    font-weight: bold;
+    font-size: 1rem;
+}

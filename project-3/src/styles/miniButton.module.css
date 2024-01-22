@@ -1,0 +1,30 @@
+.button_black{
+    text-align: center;
+    border: 2px solid black;
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    transform: scale(1.1);
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    font-size: large;
+
+
+    padding: 40% 85%;
+}
+
+.button_white{
+    text-align: center;
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    font-size: large;
+
+    
+    padding: 40% 85%;
+}

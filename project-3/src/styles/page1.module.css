@@ -1,0 +1,20 @@
+.container{
+    width: 80%;
+    height: 100vh;
+    margin: auto auto;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+
+}
+
+.heading{
+    font-size: 5rem;
+    font-weight: bolder;
+}
+
+.button{
+    
+    width: 40%;
+    float: right;
+}

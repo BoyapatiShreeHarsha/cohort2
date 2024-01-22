@@ -1,0 +1,22 @@
+.button_black{
+    width: 100%;
+    background-color: black;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    padding: 5% 0%;
+
+    border:2px solid black;
+    
+}
+
+
+.button_white{
+    width: 100%;
+    background-color: white;
+    border-radius: 4px;
+    color: black;
+    border: none;
+    padding: 5% 0;
+    border:2px solid black
+}
